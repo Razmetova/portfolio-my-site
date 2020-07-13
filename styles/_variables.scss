@@ -1,0 +1,98 @@
+@mixin respondTo($_media) {
+    @if $_media == sm {
+      @media (max-width: 576px) { @content; }
+    }
+    @else if $_media == md {
+      @media (max-width: 768px) { @content; }
+    }
+    @else if $_media == lg {
+      @media (max-width: 992px) { @content; }
+    }
+    @else if $_media == xlg {
+      @media (max-width: 1200px) { @content; }
+    }
+}
+
+$imagesPath: "../images";
+
+$fontMonserrat: 'Montserrat', sans-serif;
+$fontRoboto: 'Roboto', sans-serif;
+
+@font-face {
+  font-family: 'Proxima Nova Bold', sans-serif;
+  src: url('../packages/ProximaNova/ProximaNova-Bold.eot');
+  src: url('../packages/ProximaNova/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../packages/ProximaNova/ProximaNova-Bold.woff') format('woff'),
+  url('../packages/ProximaNova/ProximaNovaCond-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('../packages/ProximaNova/ProximaNova-Light.eot');
+  src: url('../packages/ProximaNova/ProximaNova-Light.eot?#iefix') format('embedded-opentype'),
+  url('../packages/ProximaNova/ProximaNova-Light.woff') format('woff'),
+  url('../packages/ProximaNova/ProximaNovaCond-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  src: url('../packages/MyriadPro/MyriadPro-Regular.eot');
+  src: url('../packages/MyriadPro/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../packages/MyriadPro/MyriadPro-Regular.woff') format('woff'),
+  url('../packages/MyriadPro/MyriadPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%btnViewDetail {
+  color: #454647;
+  font-family: $fontMonserrat;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3.2px;
+  border: 2px solid #737373;
+  padding: 23px 33px;
+  transition-duration: 0.3s;
+  text-decoration: none;
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+      color: #f8f8f8;
+      background-color: #00c8c8;
+      border: 2px solid #00c8c8;
+  }
+}
+
+%blockHead {
+  color: #575153;
+  font-family: $fontMonserrat;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+%blockMainInfo {
+  color: #727272;
+  font-family: $fontMonserrat;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+%blockText {
+  color: #8e8c8c;
+  font-family: $fontRoboto;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+

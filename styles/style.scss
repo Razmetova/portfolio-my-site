@@ -1,0 +1,3334 @@
+@import "_variables";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.container {
+    width: 2053px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    @include respondTo(xlg) {
+        width: 1190px;
+    }
+
+    @include respondTo(lg) {
+        width: 985px;
+    }
+
+    @include respondTo(md) {
+        width: 760px;
+    }
+
+    @include respondTo(sm) {
+        width: 560px;
+    }
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.currencyRegisterSignInAndBasket {
+    background-color: #333;
+    padding: 0 325px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include respondTo(xlg) {
+        padding: 0 80px;
+    }
+
+    @include respondTo(lg) {
+        padding: 0 26px;
+    }
+
+    @include respondTo(sm) {
+        padding: 0 18px;
+    }
+}
+
+.currency {
+    color: #777777;
+    font-family: $fontMonserrat;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    cursor: pointer;
+    margin-right: 688px;
+    padding: 7px 0;
+
+    span {
+        text-transform: uppercase;
+    }
+
+    .fas {
+        line-height: 40px;
+    }
+
+    @include respondTo(xlg) {
+        margin-right: 350px;
+    }
+
+    @include respondTo(lg) {
+        margin-right: 250px;
+    }
+
+    @include respondTo(md) {
+        margin-right: 65px;
+    }
+
+    @include respondTo(sm) {
+        margin-right: 20px;
+        font-size: 12px;
+        padding: 0px 0;
+    }
+}
+
+.register,
+.signIn {
+    a {
+        color: #999;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration: none;
+        padding: 16px 0;
+        transition-duration: 0.3s;
+
+        &:hover {
+            color: #00c8c8;
+        }
+
+        @include respondTo(sm) {
+            font-size: 12px;
+        }
+    }
+}
+
+.register {
+    margin-right: 35px;
+
+    @include respondTo(sm) {
+        margin-right: 20px;
+    }
+}
+
+.signIn {
+    margin-right: 82px;
+
+    @include respondTo(md) {
+        margin-right: 50px;
+    }
+
+    @include respondTo(sm) {
+        margin-right: 20px;
+    }
+}
+
+.basketIcon,
+.lookbookIcon {
+    color: #999;
+    font-family: $fontMonserrat;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 35px;
+    padding: 7px 23px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00c8c8;
+
+    .fa-shopping-cart,
+    .fa-heart {
+        color: #999;
+        font-size: 20px;
+        line-height: 35px;
+        margin-right: 22px;
+        color: #fff;
+
+        @include respondTo(sm) {
+            font-size: 15px;
+            margin-right: 15px;
+            line-height: 34px;
+        }
+    }
+
+    .fa-angle-down {
+        line-height: 40px;
+        margin-left: 10px;
+        color: #fff;
+    }
+
+    @include respondTo(sm) {
+        padding: 4px 15px;
+    }
+}
+
+.lookbookIcon {
+    margin-left: 15px;
+}
+
+.word {
+    font-size: 18px;
+
+    @include respondTo(sm) {
+        font-size: 14px;
+    }
+}
+
+.basketBlock {
+    display: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.62);
+    border-radius: 5px;
+    box-sizing: border-box;
+    right: 540px;
+    top: 80px;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    width: 550px;
+    z-index: 100;
+    font-family: $fontMonserrat;
+
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: -19px;
+        right: 65px;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid white;
+
+        @include respondTo(xlg) {
+            right: 70px;
+        }
+
+        @include respondTo(md) {
+            right: 145px;
+        }
+
+        @include respondTo(sm) {
+            right: 185px;
+        }
+    }
+
+    &__active {
+        display: block;
+    }
+
+    @include respondTo(xlg) {
+        right: 250px;
+    }
+
+    @include respondTo(lg) {
+        right: 190px;
+    }
+
+    @include respondTo(md) {
+        right: 100px;
+    }
+
+    @include respondTo(sm) {
+        right: 5px;
+        top: 60px;
+    }
+}
+
+.lookbookBasket {
+    display: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.62);
+    border-radius: 5px;
+    box-sizing: border-box;
+    right: 125px;
+    top: 80px;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    z-index: 100;
+    font-family: $fontMonserrat;
+
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: -19px;
+        right: 295px;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid white;
+
+        @include respondTo(xlg) {
+            right: 130px;
+        }
+
+        @include respondTo(lg) {
+            right: 65px;
+        }
+
+        @include respondTo(sm) {
+            right: 30px;
+        }
+    }
+
+    &__active {
+        display: block;
+    }
+
+    @include respondTo(xlg) {
+        right: 30px;
+    }
+
+    @include respondTo(sm) {
+        top: 60px;
+    }
+}
+
+.b-cartItem {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &__leftBlock {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+    }
+
+    &__photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__desc {
+        padding: 10px 20px 30px 10px;
+    }
+
+    &__name {
+        color: #727272;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__quantity {
+        font-size: 20px;
+        color: #9a9a9a;
+
+        &_topAndBottom {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__price {
+        font-size: 20px;
+        color: #9a9a9a;
+    }
+
+    &__rightBlock {
+        padding: 10px 20px;
+    }
+
+    &__totalPrice {
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+
+        &_bottom {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__deleteBtn {
+        color: #454647;
+        padding: 10px;
+        font-size: 50px;
+        line-height: 20px;
+        width: 100%;
+        background-color: inherit;
+        border: 1px solid #737373;
+        transition-duration: 0.3s;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            color: #f8f8f8;
+            background-color: #00c8c8;
+            border: 1px solid #00c8c8;
+        }
+    }
+}
+
+.b-lookbookItem {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &__leftBlock {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+    }
+
+    &__photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__desc {
+        padding: 10px 20px 30px 10px;
+    }
+
+    &__name {
+        color: #727272;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__category {
+        color: #727272;
+        font-size: 12px;
+        font-weight: 400;
+
+        &_margin{
+            margin-top: 10px;
+        }
+    }
+
+    &__rightBlock {
+        padding: 10px;
+    }
+
+    &__deleteBtn {
+        color: #454647;
+        padding: 10px;
+        font-size: 46px;
+        line-height: 20px;
+        width: 100%;
+        background-color: inherit;
+        border: 1px solid #737373;
+        transition-duration: 0.3s;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            color: #f8f8f8;
+            background-color: #00c8c8;
+            border: 1px solid #00c8c8;
+        }
+    }
+}
+
+.headerHomePage {
+    background: url(#{$imagesPath}/headerImg.png) no-repeat 230px 0,
+    #f8f8f8;
+    background-color: #f8f8f8;
+    padding: 38px 135px 145px 137px;
+
+    @include respondTo(xlg) {
+        background: url(#{$imagesPath}/headerImg.png) no-repeat -171px 0,
+        #f8f8f8;
+        padding: 38px 30px 166px 30px;
+    }
+
+    @include respondTo(lg) {
+        background: url(#{$imagesPath}/headerImg.png) no-repeat -150px 0,
+        #f8f8f8;
+        padding: 38px 30px 135px 30px;
+    }
+
+    @include respondTo(md) {
+        background: url(#{$imagesPath}/headerImg.png) no-repeat 65px 0,
+        #f8f8f8;
+        background-size: 80%;
+        padding: 38px 30px 130px 30px;
+    }
+
+    @include respondTo(sm) {
+        background: url(#{$imagesPath}/headerImg.png) no-repeat 155px 0,
+        #f8f8f8;
+        background-size: 80%;
+        padding: 38px 30px 115px 30px;
+    }
+}
+
+.headerAnotherPages {
+    background-color: #f8f8f8;
+    padding: 38px 135px;
+
+    @include respondTo(xlg) {
+        padding: 38px 30px;
+    }
+
+    @include respondTo(sm) {
+        padding: 20px 30px;
+    }
+
+}
+
+.headerLogoNavAndSearch {
+    display: grid;
+    grid-template-columns: 237px 1fr 190px;
+    grid-template-areas: "logo nav search";
+
+    @include respondTo(lg) {
+        grid-template: 1fr 1fr / 1fr 1fr;
+        grid-template-areas:
+            "logo search"
+            "nav nav";
+    }
+
+    @include respondTo(sm) {
+        grid-template: repeat(3, auto) / 1fr;
+        grid-template-areas: "logo""nav""search";
+        grid-gap: 40px;
+    }
+}
+
+.b-logo {
+    grid-area: logo;
+
+    &__link {
+        color: #222222;
+        font-family: $fontMonserrat;
+        font-size: 24px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        text-decoration: none;
+
+        &_bold {
+            font-weight: 700;
+        }
+    }
+
+    @include respondTo(md) {
+        padding-left: 15px;
+    }
+}
+
+.b-mainNav {
+    grid-area: nav;
+    justify-self: right;
+
+    &_topAndLeft {
+        margin-top: 9px;
+        margin-right: 115px;
+
+        @include respondTo(xlg) {
+            margin-left: 90px;
+            margin-right: 13px;
+        }
+
+        @include respondTo(lg) {
+            justify-self: right;
+            margin-right: 0;
+        }
+
+        @include respondTo(md) {
+            justify-self: left;
+            margin-left: 0;
+        }
+    }
+
+    &__items {
+        display: flex;
+        list-style-type: none;
+
+        @include respondTo(sm) {
+            display: grid;
+            grid-gap: 10px;
+        }
+    }
+
+    &__item {
+        position: relative;
+
+        &:hover,
+        &:focus-within {
+            .b-mainNav__link {
+                color: #00c8c8;
+            }
+
+            .b-mainNav__arrowDown {
+                color: #00c8c8;
+            }
+        }
+
+        &:hover .b-navDropDown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @include respondTo(sm) {
+            &:hover .b-navDropDown {
+                opacity: .8;
+                visibility: visible;
+                transform: rotateY(0deg);
+            }
+        }
+    }
+
+    &__link {
+        color: #222;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
+        padding: 0 20.5px;
+        transition-duration: 0.3s;
+
+        @include respondTo(lg) {
+            padding: 0 15px;
+        }
+    }
+
+    &__arrowDown {
+        color: #989898;
+        font-size: 13px;
+        line-height: 40px;
+        position: absolute;
+        top: 11px;
+        left: 21px;
+        transition-duration: 0.3s;
+
+        @include respondTo(sm) {
+            position: relative;
+            top: 0;
+            left: 15px;
+            line-height: 19px;
+        }
+    }
+}
+
+.b-navDropDown {
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: 0.2s;
+    transition-delay: 0.3s;
+    width: 407px;
+    background-color: #f8f8f8;
+    padding: 30px;
+    box-shadow: 0 17px 24px rgba(0, 0, 0, 0.14);
+    display: grid;
+    grid-template: 1fr 200px / repeat(2, 1fr);
+    grid-column-gap: 87px;
+    grid-row-gap: 40px;
+    position: absolute;
+    top: 50px;
+    left: -20px;
+
+    &__casual,
+    &__formal,
+    &__ourLookbook,
+    &__yourLookbook {
+        display: flex;
+        flex-direction: column;
+
+        &:hover .b-navDropDown__casualItems,
+        &:hover .b-navDropDown__formalItems,
+        &:hover .b-navDropDown__ourLookbookItems,
+        &:hover .b-navDropDown__yourLookbookItems {
+            opacity: .8;
+            visibility: visible;
+            transform: rotateY(0deg);
+        }
+    }
+
+    &__casualHead,
+    &__formalHead,
+    &__ourLookbookHead,
+    &__yourLookbookHead {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        &_bottom {
+            margin-bottom: 33px;
+
+            @include respondTo(md) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &:hover .b-navDropDown__arrowDown {
+            color: #00c8c8;
+        }
+
+        @include respondTo(sm) {
+            color: #000;
+            text-align: center;
+        }
+    }
+
+    &__arrowDown {
+        display: none;
+
+        @include respondTo(sm) {
+            display: inline;
+            margin-left: 10px;
+        }
+    }
+
+    &__casualItems,
+    &__formalItems,
+    &__ourLookbookItems,
+    &__yourLookbookItems {
+        @include respondTo(sm) {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            opacity: 1;
+            width: 156px;
+            top: 0;
+            left: 162px;
+            background-color: #f8f8f8;
+            padding-left: 15px;
+            transform: rotateY(-90deg);
+            transition: .3s linear;
+        }
+    }
+
+    &__formalItems,
+    &__yourLookbookItems {
+        top: 30px;
+    }
+
+    &__casualItem,
+    &__formalItem,
+    &__ourLookbookItem,
+    &__yourLookbookItem {
+        list-style-type: none;
+    }
+
+    &__link {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 30px;
+        text-decoration: none;
+        text-decoration: none;
+
+        &:hover {
+            color: #00c8c8;
+        }
+
+        @include respondTo(sm) {
+            color: #000;
+            font-weight: 400;
+        }
+    }
+
+    &__specialOffer {
+        grid-column: 1/3;
+        background-color: #333;
+        color: #ffffff;
+        font-family: $fontMonserrat;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 48px;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        text-align: center;
+        line-height: 48px;
+        padding: 56px 48px;
+        text-decoration: none;
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        @include respondTo(xlg) {
+            padding: 38px 21px;
+        }
+
+        @include respondTo(md) {
+            padding: 27px 21px;
+            font-size: 31px;
+            letter-spacing: 0.8px;
+        }
+
+        @include respondTo(sm) {
+            display: none;
+        }
+    }
+
+    @include respondTo(xlg) {
+        width: 350px;
+        grid-template: 1fr 170px / repeat(2, 1fr);
+        grid-column-gap: 43px;
+        left: -80px;
+    }
+
+    @include respondTo(lg) {
+        left: -310px;
+    }
+
+    @include respondTo(md) {
+        padding: 15px 30px;
+        grid-template: 1fr 150px / repeat(2, 1fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        left: 0px;
+    }
+
+    @include respondTo(sm) {
+        grid-template: 1fr / none;
+        width: 132px;
+        top: 0;
+        left: 137px;
+        box-shadow: none;
+        grid-row-gap: 0;
+        padding: 0 15px;
+        transform: rotateY(-90deg);
+        transition: .3s linear;
+    }
+
+    &_right {
+        @include respondTo(md) {
+            left: -310px;
+        }
+
+        @include respondTo(sm) {
+            left: 137px;
+        }
+    }
+
+}
+
+.b-siteSearch {
+    grid-area: search;
+    height: 30px;
+    width: 190px;
+    border: 1px solid #e7e7e7;
+
+    &_left {
+        @include respondTo(lg) {
+            justify-self: right;
+            margin-right: 15px;
+        }
+
+        @include respondTo(sm) {
+            justify-self: left;
+            margin-left: 15px;
+        }
+    }
+
+    &__field {
+        width: 127px;
+        color: #989898;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 25px;
+        padding: 0 11px;
+        margin-left: 1px;
+        background-color: #f8f8f8;
+        border: none;
+        outline: none;
+    }
+
+    &__btn {
+        color: #989898;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 27px;
+        padding: 1px 11px;
+        margin-right: 2px;
+        background-color: #f8f8f8;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.headerLetter {
+    color: #575153;
+    font-family: $fontMonserrat;
+    font-size: 450px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 83.5px;
+    margin-left: 126px;
+    margin-top: 227px;
+    margin-bottom: 122px;
+    line-height: 316px;
+
+    @include respondTo(xlg) {
+        font-size: 396px;
+        letter-spacing: 0;
+        margin-left: 0;
+    }
+
+    @include respondTo(lg) {
+        font-size: 321px;
+    }
+
+    @include respondTo(md) {
+        font-size: 254px;
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+
+    @include respondTo(sm) {
+        display: none;
+    }
+}
+
+.headerBtn {
+    @extend %btnViewDetail;
+    margin-top: 122px;
+    margin-left: 1251px;
+
+    @include respondTo(xlg) {
+        margin-left: 570px;
+    }
+
+    @include respondTo(lg) {
+        margin-left: 488px;
+        background-color: #f8f8f8;
+        opacity: .7;
+    }
+
+    @include respondTo(md) {
+        margin-left: 340px;
+    }
+
+    @include respondTo(sm) {
+        display: none;
+    }
+}
+
+.mainHomePage {
+    background-color: #fff;
+    padding: 62px 141px 124px 138px;
+
+    @include respondTo(xlg) {
+        padding: 62px 50px 124px 50px;
+    }
+
+    @include respondTo(lg) {
+        padding: 62px 50px;
+    }
+}
+
+.line {
+    background-color: #eee;
+    height: 2px;
+
+    &_top {
+        margin-top: 62px;
+    }
+
+    &_bottom {
+        margin-bottom: 54px;
+    }
+}
+
+.loading {
+    font-size: 35px;
+    color: #928c8c;
+    margin-left: calc(50% - 20px);
+}
+
+.b-menuSection {
+    display: flex;
+
+    @include respondTo(sm) {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    &_top {
+        margin-bottom: 61px;
+    }
+
+    &__link {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+        padding: 0 26px;
+        transition-duration: 0.3s;
+        cursor: pointer;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        &_active {
+            color: #00c8c8;
+        }
+
+        &:hover {
+            color: #00c8c8;
+        }
+
+        @include respondTo(md) {
+            padding: 0 18px;
+        }
+
+        @include respondTo(sm) {
+            padding: 0 0;
+        }
+    }
+
+}
+
+.b-search {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    .b-productBlock {
+        &:nth-child(n) {
+            grid-area: unset;
+        }
+    }
+}
+
+.b-productsSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    &_bottom {
+        margin-bottom: 30px;
+    }
+
+    @include respondTo(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &_invisible {
+        display: none;
+    }
+
+    &__search {
+        .b-productBlock {
+            &:nth-child(3) {
+                grid-row: unset;
+                grid-column: unset;
+            }
+
+            &:nth-child(4) {
+                grid-row: unset;
+                grid-column: unset;
+            }
+        }
+    }
+}
+
+.b-productBlock {
+    position: relative;
+    background-color: #f8f8f8;
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:nth-child(3) {
+        grid-column: 3/5;
+        grid-row: 1/3;
+
+        @include respondTo(md) {
+            grid-column: 1/-1;
+            grid-row: 2/3;
+        }
+    }
+
+    &:nth-child(4) {
+        grid-column: 1/3;
+        grid-row: 2/4;
+
+        @include respondTo(md) {
+            grid-column: 1/-1;
+            grid-row: 3/4;
+        }
+    }
+
+    &__price {
+        color: #9a9a9a;
+        font-family: $fontMonserrat;
+        font-size: 21px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1.05px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+
+        @include respondTo(xlg) {
+            font-size: 15px;
+            top: 10px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 13px;
+            top: 7px;
+            left: 7px;
+        }
+    }
+
+    &:hover .b-productBlockBack {
+        opacity: 1;
+        visibility: visible;
+        z-index: 100;
+        transition-duration: .5s;
+    }
+
+    &__invisible {
+        display: none;
+    }
+}
+
+.b-productBlockBack {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    background-color: #f8f8f8;
+    box-shadow: 0 17px 24px rgba(0, 0, 0, 0.14);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__price {
+        color: #9a9a9a;
+        font-family: $fontMonserrat;
+        font-size: 21px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1.05px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+
+        @include respondTo(xlg) {
+            font-size: 15px;
+            top: 10px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 13px;
+            top: 7px;
+            left: 7px;
+        }
+    }
+
+    &__imgSmallFront {
+        border: 1px solid #ffffff;
+        position: absolute;
+        top: 3%;
+        right: 4%;
+        cursor: pointer;
+        width: 20%;
+        height: 21%;
+    }
+
+    &__imgSmallBack {
+        border: 1px solid #ffffff;
+        position: absolute;
+        top: 28%;
+        right: 4%;
+        cursor: pointer;
+        width: 20%;
+        height: 21%;
+    }
+
+    &__info {
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+        color: #ffffff;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 20px;
+        position: absolute;
+        top: calc(50% - 24px);
+        left: calc(50% - 24px);
+        transition-duration: .3s;
+
+        @include respondTo(xlg) {
+            font-size: 40px;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+        }
+
+        &:hover {
+            color: #00c8c8
+        }
+    }
+
+    &__content {
+        text-align: center;
+        background-color: #fff;
+        padding: 21px 54px 5px 55px;
+        box-shadow: 0 17px 24px rgba(0, 0, 0, 0.14);
+
+        @include respondTo(xlg) {
+            padding: 14px 20px 5px 20px;
+        }
+
+        @include respondTo(sm) {
+            padding: 14px 10px 5px 10px;
+        }
+    }
+
+    &__head {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        @include respondTo(xlg) {
+            font-size: 8px;
+            line-height: 16px;
+        }
+    }
+
+    &__text {
+        color: #8e8c8c;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+
+        &_margins {
+            margin-top: 19px;
+            margin-bottom: 17px;
+
+            @include respondTo(lg) {
+                margin-top: 11px;
+                margin-bottom: 10px;
+            }
+
+            @include respondTo(xlg) {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+
+        @include respondTo(xlg) {
+            font-size: 10px;
+            line-height: 17px;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        margin-left: calc(50% - 65px);
+
+        @include respondTo(xlg) {
+            margin-left: calc(50% - 46px);
+        }
+    }
+
+    &__icon {
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
+        font-size: 17px;
+        line-height: 36px;
+        background-color: #727272;
+        border-radius: 50%;
+        padding: 1px 2px 4px 3px;
+        margin: 0 7px;
+        cursor: pointer;
+        transition-duration: .3s;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: #fff;
+            background-color: #00c8c8;
+        }
+
+        @include respondTo(xlg) {
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+            line-height: 24px;
+            margin: 0 5px;
+        }
+    }
+}
+
+.b-lookbooksSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    @include respondTo(lg) {
+        grid-gap: 20px;
+    }
+
+    @include respondTo(md) {
+        grid-template: repeat(2, 1fr)/ repeat(4, 1fr);
+    }
+
+    @include respondTo(sm) {
+        grid-template: repeat(3, 1fr) / 1fr;
+    }
+
+    &_margins {
+        margin-right: -141px;
+        margin-left: -138px;
+        margin-top: 62px;
+
+        @include respondTo(xlg) {
+            margin-right: -50px;
+            margin-left: -50px;
+        }
+
+        @include respondTo(md) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+.b-lookbookBlock {
+    background-color: #f8f8f8;
+    padding: 43px 57px 0 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    @include respondTo(xlg) {
+        grid-template-columns: auto 180px;
+        padding: 43px 20px 0 20px;
+    }
+
+    @include respondTo(lg) {
+        grid-template-columns: auto 160px;
+        padding: 25px 15px 0 15px;
+    }
+
+    @include respondTo(sm) {
+        grid-template-columns: auto 272px;
+        padding: 25px 15px 0 30px;
+    }
+
+    &:first-child {
+        @include respondTo(md) {
+            grid-column: 1/3;
+        }
+
+        @include respondTo(sm) {
+            grid-column: 1/-1;
+        }
+    }
+
+    &:nth-child(2) {
+        @include respondTo(md) {
+            grid-column: 3/5;
+        }
+
+        @include respondTo(sm) {
+            grid-column: 1/-1;
+        }
+    }
+
+    &:last-child {
+        @include respondTo(md) {
+            grid-column: 2/4;
+        }
+
+        @include respondTo(sm) {
+            grid-column: 1/-1;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        text-align: right;
+
+        &_bottom {
+            margin-bottom: 166px;
+
+            @include respondTo(xlg) {
+                margin-bottom: 90px;
+            }
+
+            @include respondTo(lg) {
+                margin-bottom: 60px;
+            }
+
+            @include respondTo(sm) {
+                margin-bottom: 75px;
+            }
+        }
+    }
+
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 48px;
+        font-weight: 300;
+        line-height: 54px;
+        text-transform: uppercase;
+        letter-spacing: 2.4px;
+
+        @include respondTo(xlg) {
+            font-size: 25px;
+            line-height: 30px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        &_top {
+            margin-top: 56px;
+
+            @include respondTo(xlg) {
+                margin-top: 35px;
+            }
+
+            @include respondTo(lg) {
+                margin-top: 20px;
+            }
+
+            @include respondTo(sm) {
+                margin-top: 35px;
+            }
+        }
+    }
+
+    &__text {
+        color: #727272;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+
+        @include respondTo(xlg) {
+            font-size: 8px;
+            line-height: 10px;
+        }
+
+        @include respondTo(lg) {
+            line-height: 12px;
+        }
+
+        &_topAndBottom {
+            margin-top: 29px;
+            margin-bottom: 54px;
+
+            @include respondTo(xlg) {
+                margin-top: 15px;
+                margin-bottom: 30px;
+            }
+
+            @include respondTo(sm) {
+                margin-top: 22px;
+                margin-left: 50px;
+                margin-bottom: 35px;
+            }
+
+            @include respondTo(sm) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__btn {
+        @extend %btnViewDetail;
+
+        @include respondTo(xlg) {
+            font-size: 8px;
+            padding: 16px 26px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 8px;
+            padding: 12px 12px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 10px;
+        }
+    }
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 63px 434px 63px 439px;
+    display: grid;
+    grid-template-rows: 1fr 200px;
+    grid-gap: 62px;
+    flex: 0 0 auto;
+
+    @include respondTo(xlg) {
+        padding: 63px 50px 63px 50px;
+    }
+
+    @include respondTo(lg) {
+        padding: 63px 30px 63px 30px;
+    }
+
+    @include respondTo(md) {
+        padding: 63px 100px 63px 100px;
+        grid-template-rows: 1fr 150px;
+    }
+
+    @include respondTo(sm) {
+        padding: 63px 50px 63px 50px;
+        grid-template-rows: 1fr 330px;
+    }
+}
+
+.b-footerNav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @include respondTo(md) {
+        grid-template: repeat(2, auto) / repeat(3, 1fr);
+    }
+
+    @include respondTo(sm) {
+        grid-template: repeat(3, auto) / repeat(2, 1fr);
+    }
+}
+
+.b-footerInfo,
+.b-footerWhyBuyFromUs,
+.b-footerYourAccount,
+.b-footerLookbook,
+.b-footerContactDetail {
+    justify-self: center;
+
+    &:not(:nth-child(-n+3)) {
+        @include respondTo(md) {
+            margin-top: 20px;
+        }
+    }
+
+    &:not(:nth-child(-n+2)) {
+        @include respondTo(sm) {
+            margin-top: 20px;
+        }
+    }
+
+
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        &_bottom {
+            margin-bottom: 17px;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 30px;
+        text-decoration: none;
+        transition-duration: .3s;
+
+        &:hover {
+            color: #00c8c8;
+        }
+    }
+
+    @include respondTo(md) {
+        justify-self: left;
+    }
+
+    @include respondTo(sm) {
+        margin-left: 46px;
+    }
+}
+
+.b-footerContactDetail {
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__address {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+
+        &_bottom {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__data {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 30px;
+    }
+
+    @include respondTo(md) {
+        grid-column: 2/-1;
+    }
+
+    @include respondTo(sm) {
+        grid-column: 1/-1;
+        justify-self: center;
+    }
+}
+
+.b-footerAdvert {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+
+    @include respondTo(md) {
+        margin: 0 -50px;
+    }
+
+    @include respondTo(sm) {
+        grid-template-columns: none;
+        grid-template-rows: repeat(2, 1fr);
+        margin: 0 46px;
+    }
+}
+
+.b-footerAwardWinner {
+    color: #fff;
+    font-family: $fontMonserrat;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 48px;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1.8px;
+    background-color: #333;
+    padding: 63px 55px;
+    text-decoration: none;
+    text-align: center;
+
+    &_bold {
+        font-weight: 700;
+    }
+
+    @include respondTo(xlg) {
+        font-size: 32px;
+    }
+
+    @include respondTo(lg) {
+        padding: 63px 15px;
+    }
+
+    @include respondTo(md) {
+        padding: 27px 10px;
+        font-size: 21px;
+    }
+
+    @include respondTo(sm) {
+        font-size: 26px;
+    }
+}
+
+.b-footerSocialIcons {
+    background-color: #00c8c8;
+    padding: 83px 145px;
+
+    @include respondTo(xlg) {
+        padding: 83px 123px;
+    }
+
+    @include respondTo(lg) {
+        padding: 83px 82px;
+    }
+
+    @include respondTo(md) {
+        padding: 51px 46px;
+    }
+
+
+    @include respondTo(sm) {
+        padding: 51px 63px;
+    }
+
+    &__icon {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 48px;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        padding: 0 23px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        @include respondTo(md) {
+            font-size: 30px;
+            padding: 0 16px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 36px;
+        }
+    }
+}
+
+.b-basement {
+    background-color: #333;
+    padding: 16px 441px;
+    display: grid;
+    grid-template-columns: 1fr 220px 175px;
+
+    &__itemCopy {
+        color: #999999;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 30px;
+
+        &_sign {
+            color: #777;
+            font-family: 'Myriad Pro Regular', sans-serif;
+            font-weight: 400;
+            line-height: 21px;
+        }
+
+        @include respondTo(sm) {
+            grid-column: 1/-1;
+        }
+    }
+
+    &__item {
+        color: #777;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        margin-top: 5px;
+        text-decoration: none;
+
+        &:last-child {
+            @include respondTo(sm) {
+                justify-self: end;
+            }
+        }
+    }
+
+    @include respondTo(xlg) {
+        padding: 16px 100px;
+        grid-template-columns: 1fr 265px 209px;
+    }
+
+    @include respondTo(lg) {
+        padding: 16px 50px;
+    }
+
+    @include respondTo(md) {
+        grid-template-columns: 1fr 210px 175px;
+        padding: 16px 30px;
+    }
+
+    @include respondTo(md) {
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        padding: 16px 85px;
+    }
+}
+
+.categoryMain {
+    padding: 60px 80px;
+
+    @include respondTo(xlg) {
+        padding: 60px 50px;
+    }    
+}
+
+.b-categoryPage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    &_paddings {
+        padding-bottom: 30px;
+
+        &:not(:first-child) {
+            padding-top: 0px;
+        }
+    }
+
+    &_invisible {
+        display: none;
+    }
+
+    @include respondTo(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.b-categoryPage>.b-productBlock {
+    grid-area: unset;
+}
+
+.b-mainPicture {
+    background: url(#{$imagesPath}/3-layers.png) no-repeat;
+    background-size: cover;
+    padding: 163px 35px;
+    text-align: center;
+
+    &__head {
+        color: #fff;
+        font-family: $fontMonserrat;
+        font-size: 48px;
+        font-weight: 300;
+        line-height: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2.4px;
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        &_bottom {
+            margin-bottom: 54px;
+
+            @include respondTo(md) {
+                margin-bottom: 34px;
+            }
+        }
+
+        @include respondTo(sm) {
+            font-size: 40px;
+        }
+    }
+
+    &__slogan {
+        color: #fff;
+        font-family: $fontMonserrat;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        &_active {
+            color: #00c8c8;
+            letter-spacing: 1.5px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 25px;
+        }
+    }
+
+}
+
+.b-mainTheBrand {
+    background-color: #fff;
+    padding: 63px 440px 124px 440px;
+    display: grid;
+    grid-template: repeat(6, 116px) 177px / repeat(2, 1fr);
+    grid-template-areas:
+        "handDesignedImage handDesignetDesc"
+        "handDesignedImage handDesignetDesc"
+        "handDesignedImage ethicalTradingImage"
+        "ourValuesImage ethicalTradingImage"
+        "ourValuesImage ethicalTradingImage"
+        "ourValuesImage ethicalTradingDesc"
+        "ourValuesDesc signatures";
+    grid-gap: 30px;
+    align-items: center;
+
+    @include respondTo(xlg) {
+        padding: 63px 65px 124px 65px;
+        grid-template-rows: repeat(6, 100px) 177px;
+    }
+
+    @include respondTo(lg) {
+        padding: 65px 45px;
+        grid-template-rows: repeat(6, 85px) 177px;
+    }
+
+    @include respondTo(md) {
+        padding: 65px 45px;
+        grid-template: repeat(7, auto) / 1fr;
+        grid-template-areas:
+            "handDesignedImage "
+            "handDesignetDesc"
+            "ethicalTradingImage"
+            "ethicalTradingDesc"
+            "ourValuesImage"
+            "ourValuesDesc"
+            "signatures";
+    }
+}
+
+.b-mainLookbook {
+    padding: 63px 140px 124px 140px;
+}
+
+.b-handDesignedImage {
+    grid-area: handDesignedImage;
+}
+
+.b-handDesignetDesc {
+    grid-area: handDesignetDesc;
+}
+
+.b-ethicalTradingImage {
+    grid-area: ethicalTradingImage;
+}
+
+.b-ethicalTradingDesc {
+    grid-area: ethicalTradingDesc;
+}
+
+.b-ourValuesImage {
+    grid-area: ourValuesImage;
+}
+
+.b-ourValuesDesc {
+    grid-area: ourValuesDesc;
+}
+
+.b-signatures {
+    grid-area: signatures;
+
+    &__sign {
+        &_right {
+            margin-right: 52px;
+
+            @include respondTo(xlg) {
+                margin-right: 23px;
+            }
+
+            @include respondTo(lg) {
+                margin-right: -17px;
+            }
+
+            @include respondTo(md) {
+                margin-right: 102px;
+            }
+
+            @include respondTo(sm) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &_top {
+        margin-top: 40px;
+    }
+}
+
+.b-handDesignedImage,
+.b-ethicalTradingImage,
+.b-ourValuesImage {
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.b-handDesignetDesc,
+.b-ethicalTradingDesc,
+.b-ourValuesDesc {
+
+    &__head {
+        @extend %blockHead;
+
+        @include respondTo(xlg) {
+            font-size: 13px;
+        }
+
+        @include respondTo(md) {
+            font-size: 18px;
+        }
+    }
+
+    &__info {
+        @extend %blockMainInfo;
+
+        &_margins {
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        @include respondTo(xlg) {
+            font-size: 8px;
+        }
+
+        @include respondTo(md) {
+            font-size: 13px;
+        }
+    }
+
+    &__text {
+        @extend %blockText;
+
+        a {
+            text-decoration: none;
+            color: #00c8c8;
+        }
+
+        @include respondTo(xlg) {
+            font-size: 9px;
+        }
+
+        @include respondTo(md) {
+            font-size: 15px;
+        }
+    }
+
+}
+
+.b-addresses {
+    background-color: #fff;
+    padding: 61px 430px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+
+    @include respondTo(xlg) {
+        padding: 61px 110px;
+    }
+
+    @include respondTo(md) {
+        grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+        padding: 61px 80px;
+    }
+
+    @include respondTo(sm) {
+        grid-template: repeat(3, 1fr) / none;
+        padding: 61px 50px;
+    }
+}
+
+.b-address {
+    &__head {
+        @extend %blockHead;
+    }
+
+    &__address {
+        @extend %blockMainInfo;
+
+        &_topAndBottom {
+            margin-bottom: 18px;
+            margin-top: 29px;
+        }
+    }
+
+    &__text {
+        @extend %blockText;
+
+        &_bottom {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__btn {
+        @extend %btnViewDetail;
+
+        &_active {
+            color: #f8f8f8;
+            background-color: #00c8c8;
+            border: 2px solid #00c8c8;
+        }
+    }
+
+    &:first-child {
+        @include respondTo(md) {
+            grid-column: 1/3;
+        }
+
+        @include respondTo(sm) {
+            grid-column: none;
+        }
+    }
+
+    &:nth-child(2) {
+        @include respondTo(md) {
+            grid-column: 3/5;
+        }
+
+        @include respondTo(sm) {
+            grid-column: none;
+        }
+    }
+
+    &:last-child {
+        @include respondTo(md) {
+            grid-column: 2/4;
+        }
+
+        @include respondTo(sm) {
+            grid-column: none;
+        }
+    }
+}
+
+.b-localStoreDetails {
+    background-color: #f8f8f8;
+    display: none;
+    grid-template-columns: 1fr 663px;
+
+    &:nth-child(2) {
+        display: grid;
+    }
+
+    @include respondTo(xlg) {
+        grid-template-columns: 1fr 470px;
+    }
+
+    @include respondTo(lg) {
+        grid-template-columns: 1fr 385px;
+    }
+
+    @include respondTo(md) {
+        grid-template: repeat(2, 1fr) / none;
+    }
+
+    &_bottom {
+        margin-bottom: 124px;
+
+        @include respondTo(lg) {
+            margin-bottom: 61px;
+        }
+    }
+
+    &__map {
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__info {
+        padding: 42px 76px 71px 41px;
+
+        @include respondTo(xlg) {
+            padding: 42px 41px 71px 41px;
+        }
+
+        @include respondTo(md) {
+            padding: 42px 41px;
+        }
+    }
+
+    &__head {
+        @extend %blockHead;
+    }
+
+    &__address {
+        @extend %blockMainInfo;
+
+        &_topAndBottom {
+            margin-bottom: 18px;
+            margin-top: 29px;
+        }
+    }
+
+    &__text {
+        @extend %blockText;
+    }
+
+    &__NewYork,
+    &__Paris {
+        display: none;
+    }
+
+}
+
+.b-localStoreMoreDetails {
+    &_top {
+        margin-top: 30px;
+    }
+
+    &__item {
+        color: #8e8c8c;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 32px;
+        text-decoration: none;
+
+        .fas,
+        .far {
+            color: #8e8c8c;
+            font-size: 16px;
+            line-height: 30px;
+            padding-right: 9px;
+        }
+    }
+
+    &__icons {
+        &_top {
+            margin-top: 30px;
+        }
+    }
+
+    &__icon {
+        color: #fff;
+        font-size: 18px;
+        line-height: 48px;
+        text-transform: uppercase;
+        letter-spacing: 0.9px;
+        background-color: #727272;
+        border-radius: 50%;
+        padding: 7px 7px 6px 7px;
+        transition-duration: .3s;
+
+        &:first-child {
+            padding: 6px 11px 6px 9px;
+        }
+
+        &:not(:last-child) {
+            margin-right: 14px;
+        }
+
+        &:hover {
+            background-color: #00c8c8;
+        }
+    }
+}
+
+.b-mainLookbook {
+    @include respondTo(xlg) {
+        padding: 63px 50px 124px 50px;
+        ;
+    }
+
+    @include respondTo(md) {
+        padding: 63px 50px;
+    }
+}
+
+.b-ourLookbook {
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    &_invisible {
+        display: none;
+    }
+
+    @include respondTo(xlg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    @include respondTo(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__category {
+        margin-bottom: 30px;
+
+        @include respondTo(xlg) {
+            grid-template: 1fr / repeat(4, 1fr);
+        }
+    
+        @include respondTo(md) {
+            grid-template: 1fr / repeat(2, 1fr);
+        }
+    }
+
+    &__search {
+        display: grid;
+        grid-template: auto / repeat(4, 1fr);
+        grid-gap: 30px;
+        grid-template-areas: none;
+    
+        .b-ourLookbookBlock {
+            &:nth-child(n) {
+                grid-area: unset;
+            }
+        }
+
+        @include respondTo(xlg) {
+            grid-template: auto / repeat(3, 1fr);
+        }
+
+        @include respondTo(md) {
+            grid-template: auto / repeat(2, 1fr);
+        }
+    }
+}
+
+.b-ourLookbookBlock {
+    position: relative;
+    transition-duration: .3s;
+
+    &__photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__code {
+        color: #9a9a9a;
+        font-family: $fontMonserrat;
+        font-size: 21px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1.05px;
+        position: absolute;
+        top: 15px;
+        left: 16px;
+
+        @include respondTo(xlg) {
+            font-size: 17px;
+        }
+
+        @include respondTo(sm) {
+            top: 7px;
+            left: 5px;
+        }
+
+        &_small {
+            font-size: 14px;
+            vertical-align: super;
+
+            @include respondTo(xlg) {
+                font-size: 11px;
+            }
+        }
+    }
+
+    &__icons {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: calc(64% - 24px);
+        left: calc(50% - 63px);
+        transition-duration: .3s;
+    }
+
+    &__icon {
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+        color: #fff;
+        font-size: 48px;
+        line-height: 20px;
+        transition-duration: .3s;
+
+        &:first-child {
+            margin-right: 29px;
+        }
+
+        &:hover {
+            color: #00c8c8;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 17px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    &:hover &__icons {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__invisible {
+        display: none;
+    }
+}
+
+.b-ourLookbookNewBlock {
+    background: url(#{$imagesPath}/REPLACE-lookbook-1.png) no-repeat;
+    background-size: cover;
+    grid-column: 3/5;
+    grid-row: 1/2;
+    padding: 62px 338px 129px 16px;
+
+    @include respondTo(xlg) {
+        padding: 20px 204px 20px 10px;
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+
+    @include respondTo(lg) {
+        padding: 10px 204px 40px 10px;
+    }
+
+    &__text {
+        width: 64%;
+
+        @include respondTo(xlg) {
+            width: 57%;
+        }
+
+        @include respondTo(sm) {
+            width: 71%;
+        }
+    }
+}
+
+.b-ourLookbookWinBlock {
+    background: url(#{$imagesPath}/REPLACE-lookbook-2.png) no-repeat 298px 0,
+    #efefed;
+    background-size: contain;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respondTo(xlg) {
+        background: url(#{$imagesPath}/REPLACE-lookbook-2.png) no-repeat 282px 0,
+        #efefed;
+        background-size: contain;
+    }
+
+    @include respondTo(md) {
+        background: url(#{$imagesPath}/REPLACE-lookbook-2.png) no-repeat 190px 0,
+        #efefed;
+        background-size: cover;
+        grid-template-columns: 1fr 310px;
+        grid-column: 1/3;
+        grid-row: 5/6;
+    }
+
+    @include respondTo(sm) {
+        background: url(#{$imagesPath}/REPLACE-lookbook-2.png) no-repeat 150px 0,
+        #efefed;
+        background-size: cover;
+        grid-template-columns: 1fr 190px;
+    }
+
+}
+
+.b-ourLookbookNewBlock,
+.b-ourLookbookWinBlock {
+    &__content {
+        padding: 63px 140px 129px 14px;
+
+        @include respondTo(xlg) {
+            padding: 15px 0 43px 10px;
+        }
+
+        @include respondTo(md) {
+            padding: 15px 0 0px 10px;
+        }
+
+        @include respondTo(sm) {
+            padding: 0 0 20px 10px;
+        }
+    }
+
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 48px;
+        font-weight: 300;
+        line-height: 54px;
+        text-transform: uppercase;
+        letter-spacing: 2.4px;
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        @include respondTo(xlg) {
+            font-size: 34px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 32px;
+        }
+
+        @include respondTo(md) {
+            font-size: 30px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 20px;
+            line-height: 45px;
+        }
+    }
+
+    &__info {
+        @extend %blockMainInfo;
+
+        @include respondTo(xlg) {
+            font-size: 11px;
+        }
+
+        @include respondTo(lg) {
+            font-size: 8px;
+        }
+
+        @include respondTo(md) {
+            font-size: 15px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 10px;
+        }
+
+        &_topAndBottom {
+            margin-top: 20px;
+            margin-bottom: 15px;
+
+            @include respondTo(xlg) {
+                margin-top: 0;
+            }
+
+            @include respondTo(sm) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    &__text {
+        @extend %blockText;
+
+        @include respondTo(xlg) {
+            font-size: 11px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 8px;
+        }
+
+        &_bold {
+            font-weight: 900;
+        }
+
+        &_topAndBottom {
+            margin-top: 15px;
+            margin-bottom: 53px;
+
+            @include respondTo(xlg) {
+                margin-top: 5px;
+                margin-bottom: 40px;
+            }
+
+            @include respondTo(lg) {
+                margin-bottom: 25px;
+            }
+
+            @include respondTo(md) {
+                margin-bottom: 45px;
+            }
+
+            @include respondTo(sm) {
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &__btn {
+        @extend %btnViewDetail;
+
+        @include respondTo(xlg) {
+            font-size: 11px;
+        }
+
+        @include respondTo(md) {
+            font-size: 15px;
+        }
+
+        @include respondTo(sm) {
+            font-size: 8px;
+            padding: 12px 18px;
+        }
+
+    }
+
+    &__bigLetters {
+        color: #00c8c8;
+        font-family: $fontMonserrat;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 85px;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        padding: 174px 15px 113px 107px;
+        text-align: end;
+
+        @include respondTo(xlg) {
+            line-height: 50px;
+            font-size: 35px;
+            padding: 100px 5px 107px 107px;
+        }
+
+        @include respondTo(md) {
+            padding: 215px 5px 30px 0px;
+        }
+
+        @include respondTo(sm) {
+            padding: 150px 5px 30px 0px;
+            line-height: 25px;
+            font-size: 20px;
+        }
+
+        &_bold {
+            font-size: 200px;
+            letter-spacing: 10px;
+
+            @include respondTo(xlg) {
+                font-size: 120px;
+            }
+
+            @include respondTo(sm) {
+                font-size: 70px;
+            }
+        }
+    }
+}
+
+.b-mainProductViewPage {
+    background-color: #fff;
+    padding: 63px 440px 125px 440px;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 38px;
+
+    @include respondTo(xlg) {
+        padding: 63px 30px 125px 30px;
+    }
+
+    @include respondTo(md) {
+        padding: 63px 50px;
+    }
+
+    @include respondTo(sm) {
+        padding: 63px 20px;
+    }
+}
+
+.b-productView {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+    grid-column-gap: 29px;
+
+    @include respondTo(lg) {
+        grid-template: 558px auto / repeat(2, 1fr);
+        grid-row-gap: 29px;
+    }
+
+    @include respondTo(md) {
+        grid-template: repeat(3, auto) / 660px;
+        grid-row-gap: 29px;
+    }
+
+    @include respondTo(sm) {
+        grid-template: repeat(3, auto) / 520px;
+    }
+
+    &__photos {
+        position: relative;
+        grid-row: 1/-1;
+
+        @include respondTo(lg) {
+            grid-row: 1/2;
+        }
+
+        &_arrowLeft,
+        &_arrowRight {
+            color: #575153;
+            font-size: 35px;
+            position: absolute;
+            padding: 13px 15px 15px 14px;
+            cursor: pointer;
+
+            &:hover {
+                color: #fff;
+                background-color: #00c8c8;
+            }
+        }
+
+        &_arrowLeft {
+            top: calc(50% - 60px);
+            left: 0;
+        }
+
+        &_arrowRight {
+            top: calc(50% - 60px);
+            right: 0;
+        }
+    }
+
+    &__photo {
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        &:first-of-type {
+            display: block;
+        }
+    }
+}
+
+.b-productViewDesc {
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+
+    &__price {
+        color: #9a9a9a;
+        font-family: $fontMonserrat;
+        font-size: 30px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+
+        &_up {
+            font-size: 18px;
+            vertical-align: super;
+        }
+    }
+}
+
+.b-productViewDescLinks {
+    display: flex;
+    flex-wrap: wrap;
+    color: #8c8c8c;
+    font-family: $fontMonserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+    &__star {
+        color: #ded3aa;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    &__reviews {
+        color: #727272;
+        text-decoration: none;
+        transition-duration: .3s;
+
+        &_left {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            color: #00c8c8;
+        }
+    }
+
+    .trait {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        @include respondTo(sm) {
+            margin-left: 7px;
+            margin-right: 7px;
+        }
+    }
+
+    &__addReview {
+        color: #8c8c8c;
+        text-decoration: none;
+        transition-duration: .3s;
+
+        &:hover {
+            color: #00c8c8;
+        }
+    }
+
+    &__shareLink {
+        color: #8c8c8c;
+        font-size: 14px;
+        padding: 0 5px;
+        transition-duration: .3s;
+
+        &:hover {
+            color: #00c8c8;
+        }
+    }
+
+    &_topAndBottom {
+        margin-top: 20px;
+        margin-bottom: 27px;
+    }
+}
+
+.b-productViewDescMainInfo {
+    &__item {
+        color: #8c8c8c;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__tag {
+        color: #00c8c8;
+        font-family: $fontRoboto;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    &_topAndBottom {
+        margin-top: 26px;
+        margin-bottom: 17px;
+    }
+}
+
+.b-productViewDescText {
+    &__content {
+        color: #8e8c8c;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    &__list {
+        list-style-type: none;
+
+        &_topAndBottom {
+            margin-top: 15px;
+            margin-bottom: 37px;
+        }
+    }
+
+    &__item {
+        color: #8e8c8c;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 21px;
+
+        &:before {
+            content: "•";
+            color: #cccccc;
+            letter-spacing: 0.6px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.b-productViewDescToBuy {
+    @include respondTo(lg) {
+        grid-column: 1/-1;
+    }
+
+    &__compare {
+        color: #454647;
+        font-family: $fontMonserrat;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2.8px;
+        border: none;
+        outline: none;
+        background-color: #fff;
+        cursor: pointer;
+
+        &_icon {
+            color: #fff;
+            font-size: 17px;
+            line-height: 36px;
+            background-color: #727272;
+            padding: 2px 9px 2px 12px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.b-productViewDescToBuySelection {
+    display: flex;
+    flex-wrap: wrap;
+
+    &_bottom {
+        margin-bottom: 30px;
+    }
+
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 15px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+
+    &__select {
+        position: relative;
+    }
+
+    select {
+        width: 170px;
+        color: #989898;
+        font-family: $fontMonserrat;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 22px;
+        padding: 13px 10px;
+        margin-right: 30px;
+        border: 1px solid #e7e7e7;
+        outline: none;
+    }
+
+    &__counter {
+        width: 70px;
+        color: #989898;
+        font-family: $fontMonserrat;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 19px;
+        letter-spacing: 0.52px;
+        padding: 12px 14px;
+        border: 1px solid #e7e7e7;
+        outline: none;
+
+        &_arrowUp,
+        &_arrowDown {
+            color: #989898;
+            font-size: 13px;
+            line-height: 17px;
+            padding: 2px 14px;
+            border: 1px solid #e7e7e7;
+            position: absolute;
+        }
+
+        &_arrowUp {
+            top: 28px;
+            left: 58px;
+        }
+
+        &_arrowDown {
+            top: 51px;
+            left: 58px;
+        }
+    }
+
+    &_buttonsMargins {
+        margin-top: 30px;
+    }
+
+    &__addToCartBtn,
+    &__addToLookbookBtn {
+        color: #454647;
+        font-family: $fontMonserrat;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 3.2px;
+        border: 2px solid #737373;
+        background-color: #fff;
+        outline: none;
+        padding: 23px 33px;
+        cursor: pointer;
+
+        &_icon {
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+            border: 2px solid #333;
+        }
+
+        &:hover &_icon {
+            color: #fff;
+        }
+
+        @include respondTo(xlg) {
+            padding: 23px 24px;
+        }
+
+        @include respondTo(sm) {
+            padding: 23px 21px;
+        }
+    }
+}
+
+.b-productViewLongDescMenu {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f8f8f8;
+
+    @include respondTo(md) {
+        margin: 0 -50px;
+    }
+
+    @include respondTo(sm) {
+        margin: 0 -20px;
+    }
+
+    &__link {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: uppercase;
+        padding: 19px 15px;
+        cursor: pointer;
+
+        &_right {
+            margin-right: 50px;
+
+            @include respondTo(md) {
+                margin-right: 20px;
+            }
+        }
+
+        &:hover {
+            color: #fff;
+            background-color: #333;
+        }
+
+        &_active {
+            color: #fff;
+            background-color: #333;
+        }
+    }
+}
+
+.b-productViewLongDescContent {
+    padding: 26px 17px 0 15px;
+    display: none;
+
+    &:nth-child(2) {
+        display: block;
+    }
+
+    @include respondTo(md) {
+        margin: 0 -50px;
+    }
+
+    @include respondTo(sm) {
+        margin: 0 -20px;
+    }
+
+    &__head {
+        color: #727272;
+        font-family: $fontMonserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        color: #8e8c8c;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+
+        &_top {
+            margin-top: 18px;
+        }
+    }
+}
+
+.mainSignInRegisterPage {
+    background-color: #fff;
+    padding: 61px 442px 116px 439px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respondTo(xlg) {
+        padding: 61px 70px 116px 70px;
+    }
+
+    @include respondTo(md) {
+        grid-template-columns: auto;
+        padding: 61px 120px;
+    }
+
+    @include respondTo(sm) {
+        padding: 61px 70px;
+    }
+}
+
+.b-signInBlock {
+    padding-right: 35px;
+
+    @include respondTo(md) {
+        padding-right: 0;
+        padding-bottom: 35px;
+    }
+}
+
+.b-registerBlock {
+    padding-left: 34px;
+    border-left: 1px solid #eee;
+
+    @include respondTo(md) {
+        padding-left: 0;
+        padding-top: 34px;
+        border-left: none;
+        border-top: 1px solid #eee;
+    }
+}
+
+.b-signInBlock,
+.b-registerBlock {
+    &__head {
+        color: #575153;
+        font-family: $fontMonserrat;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-row-gap: 34px;
+
+        @include respondTo(lg) {
+            grid-template-columns: auto;
+        }
+
+        @include respondTo(md) {
+            grid-template-columns: repeat(2, auto);
+        }
+
+        @include respondTo(sm) {
+            grid-template-columns: auto;
+        }
+
+        &_top {
+            margin-top: 46px;
+        }
+    }
+
+    &__inputBlock {
+        grid-column: 1/-1;
+    }
+
+    &__input {
+        width: 98%;
+        color: #989898;
+        font-family: $fontMonserrat;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 22px;
+        padding: 7px 0 7px 9px;
+        border: 1px solid #e7e7e7;
+        outline: none;
+    }
+
+    &__checkbox {
+        grid-column: 1/-1;
+
+        label {
+            color: #8e8c8c;
+            font-family: $fontRoboto;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 22px;
+        }
+
+        input {
+            width: 24px;
+            height: 24px;
+            vertical-align: bottom;
+            margin-right: 10px;
+        }
+    }
+
+    &__submit {
+        color: #454647;
+        font-family: $fontMonserrat;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3.2px;
+        padding: 23px 33px;
+        border: 2px solid #737373;
+        background-color: #fff;
+        cursor: pointer;
+        transition-duration: .3s;
+
+        &:hover {
+            color: #f8f8f8;
+            border: 2px solid #00c8c8;
+            background-color: #00c8c8;
+        }
+    }
+
+    &__privacyPolicy {
+        color: #8e8c8c;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+        align-self: center;
+        text-align: center;
+
+        &_left {
+            margin-left: 67px;
+
+            @include respondTo(xlg) {
+                margin-left: 6px;
+            }
+
+            @include respondTo(lg) {
+                margin-left: 0;
+                text-align: start;
+            }
+
+            @include respondTo(md) {
+                margin-left: 39px;
+                text-align: center;
+            }
+
+            @include respondTo(sm) {
+                margin-left: 0;
+                text-align: start;
+            }
+        }
+    }
+
+    &__forgot,
+    &__link {
+        color: #00c8c8;
+        font-family: $fontRoboto;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+        text-decoration: none;
+        align-self: center;
+
+        &_left {
+            margin-left: 232px;
+
+            @include respondTo(xlg) {
+                margin-left: 171px;
+            }
+
+            @include respondTo(lg) {
+                margin-left: 0;
+            }
+
+            @include respondTo(md) {
+                margin-left: 201px;
+            }
+
+            @include respondTo(sm) {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.errorMsg {
+    color: red;
+    margin: 5px 0;
+}
+
+.invalid {
+    border: 1px solid #bb5465;
+    background-color: rgba(187, 84, 101, 0.05);
+}
+
+.valid {
+    border: 1px solid green;
+}
+
+.invisible {
+    display: none;
+}
