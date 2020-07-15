@@ -2,13 +2,14 @@
 
 const API = 'https://raw.githubusercontent.com/Razmetova/portfolio-my-site/master';
 
+// Главный класс для отрисовки списков товаров
 class List {
     constructor(container, url) {
         this.url = url;
         this.container = container;
-        this.goods = [];
-        this.allProducts = [];
-        this.filtered = [];
+        this.goods = []; // пушим товары, полученые с апи
+        this.allProducts = []; // пушим товары, которые отрисовываем на странице
+        this.filtered = []; // пушим отфильтрованные товары
     }
 
     _init() {
@@ -53,7 +54,9 @@ class List {
         this.allProducts.forEach(elem => {
             let block = document.querySelector(`.${searchBlock}[data-id="${elem.id}"]`);
             if(this.filtered.length === this.allProducts.length) {
-                document.querySelector('.b-menuSection').classList.remove('invisible');
+                if(document.querySelector('.b-menuSection')) {
+                    document.querySelector('.b-menuSection').classList.remove('invisible');
+                }
                 div.remove();
                 if(!block.parentElement.classList.contains(`${this.container}`)) {
                     block = document.querySelector(`.${searchBlock}[data-id="${elem.id}"]`);
@@ -71,7 +74,9 @@ class List {
 
             block.classList.add(`${searchBlock}__invisible`);
             if(this.filtered.includes(elem)) {
-                document.querySelector('.b-menuSection').classList.add('invisible');
+                if(document.querySelector('.b-menuSection')) {
+                    document.querySelector('.b-menuSection').classList.add('invisible');
+                }
                 div.insertAdjacentHTML('beforeend', elem.render());
                 if(document.querySelector('.b-ourLookbookNewBlock') && document.querySelector('.b-ourLookbookWinBlock')){
                     document.querySelector('.b-ourLookbookNewBlock').classList.add('invisible');
@@ -144,6 +149,7 @@ class List {
     }
 }
 
+// Класс для отрисовки товаров на главной странице
 class ProductList extends List {
     constructor(cart, lookbookBasket, container, url = '/catalogData.json') {
         super(container, url);
@@ -176,7 +182,7 @@ class ProductList extends List {
 
     render() {
         let blocks = document.querySelectorAll(`.${this.container}`);
-        let result = []; //массив для хранения маркеров
+        let result = []; // массив для хранения маркеров
         for (let product of this.goods) {
             let prod = new lists[this.constructor.name](product);
             this.allProducts.push(prod);
@@ -204,6 +210,7 @@ class ProductList extends List {
     }
 }
 
+// Класс для отрисовки товаров в корзине
 class Cart extends List {
     constructor(container = 'basketBlock', url = '/getBasket.json') {
         super(container, url);
@@ -235,7 +242,7 @@ class Cart extends List {
     }
 
     addProduct(element) {
-        this.getJson('../addToBasket.json')
+        this.getJson('/addToBasket.json')
             .then(data => {
                 if (data.result) {
                     let prodId = +element.dataset.id;
@@ -278,7 +285,7 @@ class Cart extends List {
     }
 
     removeProduct(element) {
-        this.getJson('../deleteFromBasket.json')
+        this.getJson('/deleteFromBasket.json')
             .then(data => {
                 if (data.result) {
                     let prodId = +element.dataset.id;
@@ -321,6 +328,7 @@ class Cart extends List {
     }
 }
 
+// Класс для отрисовки товаров в корзине лукбук
 class LookbookBasket extends Cart {
     constructor(container = 'lookbookBasket', url = '/getLookbookBasket.json') {
         super(container, url);
@@ -347,7 +355,7 @@ class LookbookBasket extends Cart {
     }
 
     addProduct(element) {
-        this.getJson('../addToBasket.json')
+        this.getJson('/addToBasket.json')
             .then(data => {
                 if (data.result) {
                     let prodId = +element.dataset.id;
@@ -372,7 +380,7 @@ class LookbookBasket extends Cart {
     }
 
     removeProduct(element) {
-        this.getJson('../deleteFromBasket.json')
+        this.getJson('/deleteFromBasket.json')
             .then(data => {
                 if (data.result) {
                     let prodId = +element.dataset.id;
@@ -387,15 +395,12 @@ class LookbookBasket extends Cart {
             }})
     }
 
-    _quantity () {
-        return this.allProducts.length;
-    }
 
     _updateIcon() {
         let icon = document.querySelector('.lookbookIcon');
         let word = icon.querySelector('.word');
         if (this.allProducts.length) {
-            let quantity = this._quantity();
+            let quantity = this.allProducts.length;
             word.innerHTML = quantity;
         } else {
             word.innerHTML = 'empty';
@@ -404,12 +409,10 @@ class LookbookBasket extends Cart {
     }
 }
 
-class LookBookList extends List {
-    constructor(lookbookBasket, container = 'b-ourLookbook', url = '/catalogData.json') {
-        super(container, url);
-        this.lookbookBasket = lookbookBasket;
-        this.getJson()
-            .then(data => this.handleData(data));
+// Класс для отрисовки товаров на странице лукбук
+class LookBookList extends ProductList {
+    constructor(cart, lookbookBasket, container = 'b-ourLookbook', url = '/catalogData.json') {
+        super(cart, lookbookBasket, container, url);
     }
 
     _init() {
@@ -417,6 +420,7 @@ class LookBookList extends List {
             e.preventDefault();
             this.filter(document.querySelector('.b-siteSearch__field').value, 'b-ourLookbookBlock');
         })
+
         document.querySelectorAll(`.${this.container}`).forEach(el => {
             el.addEventListener('click', e => {
                 if (e.target.classList.contains('addToLookbook')) {
@@ -425,48 +429,21 @@ class LookBookList extends List {
                 }
             })
         })
-    }
 
-    render() {
-        let blocks = document.querySelectorAll(`.${this.container}`);
-        let result = [];
-        for (let product of this.goods) {
-            let prod = new lists[this.constructor.name](product);
-            this.allProducts.push(prod);
-            blocks.forEach(block => {
-                this.renderLists(result, prod, block);
-            })
-        }
         this.priceLowToHigh();
         this.priceHighToLow();
     }
 
-    renderLists(array, product, block) {
-        product.mark.forEach(mark => {
-            if(!array.includes(mark)) {
-                array.push(mark);
-            }
-        })
-        
-        array.forEach((mark) => {
-            if(product.mark.includes(mark)) {
-                if(block.classList.contains(`${this.container}__${marks[mark]}`)) {
-                    block.insertAdjacentHTML('beforeend', product.render());
-                }
-            }
-        })
-    }
-
-    sort(arr) {
+    _sort(arr) {
         return arr.sort((a, b) => a.price > b.price ? 1 : -1);
     }
 
-    reverseSort(arr) {
+    _reverseSort(arr) {
         return arr.sort((a, b) => a.price < b.price ? 1 : -1);
     }
 
     priceLowToHigh() {
-        let sorted = this.sort(this.allProducts);
+        let sorted = this._sort(this.allProducts);
         let block = document.querySelector('.b-ourLookbook__priceLowToHigh');
         sorted.forEach(elem => {
             block.insertAdjacentHTML('beforeend', elem.render());
@@ -474,7 +451,7 @@ class LookBookList extends List {
     }
 
     priceHighToLow() {
-        let sorted = this.reverseSort(this.allProducts);
+        let sorted = this._reverseSort(this.allProducts);
         let block = document.querySelector('.b-ourLookbook__priceHighToLow');
         sorted.forEach(elem => {
             block.insertAdjacentHTML('beforeend', elem.render());
@@ -482,10 +459,10 @@ class LookBookList extends List {
     }
 }
 
+// Класс для отрисовки на странице просмотра товара
 class ProductView extends ProductList {
     constructor(cart, lookbookBasket, container = 'b-mainProductViewPage', url) {
         super(cart, lookbookBasket, container, url);
-        this._changeCounter();
         this._changePhotos();
     }
 
@@ -497,31 +474,25 @@ class ProductView extends ProductList {
             if (product.id_product === id) {
                 let prod = new lists[this.constructor.name](product);
                 block.insertAdjacentHTML('beforeend', prod.render());
+                this._changeCounter(prod);
                 return;
             }
         }
     }
 
-    _changeCounter() {
+    _changeCounter(product) {
         document.querySelector(`.${this.container}`).addEventListener('click', e => {
             if (e.target.classList.contains('b-productViewDescToBuySelection__counter_arrowUp')) {
-                for (let product of this.goods) {
-                    if (product.id_product == +e.target.dataset.id) {
-                        document.querySelector('.b-productViewDescToBuySelection__counter').value++;
-                        product.quantity++;
-                    }
-                }
+                document.querySelector('.b-productViewDescToBuySelection__counter').value++;
+                product.quantity++;
             }
+
             if (e.target.classList.contains('b-productViewDescToBuySelection__counter_arrowDown')) {
-                for (let product of this.goods) {
-                    if (product.id_product == +e.target.dataset.id) {
-                        if (document.querySelector('.b-productViewDescToBuySelection__counter').value <= 1) {
-                            return;
-                        }
-                        document.querySelector('.b-productViewDescToBuySelection__counter').value--;
-                        product.quantity--;
-                    }
+                if (document.querySelector('.b-productViewDescToBuySelection__counter').value <= 1) {
+                    return;
                 }
+                document.querySelector('.b-productViewDescToBuySelection__counter').value--;
+                product.quantity--;
             }
         })
     }
@@ -550,6 +521,7 @@ class ProductView extends ProductList {
     }
 }
 
+// Класс для отрисовки товаров на страницах по категориям
 class CategoryList extends ProductList {
     constructor(cart, lookbookBasket, container = 'b-categoryPage', url) {
         super(cart, lookbookBasket, container, url);
@@ -557,7 +529,7 @@ class CategoryList extends ProductList {
 
     render() {
         let block = document.querySelector(`.${this.container}`);
-        let kind = params.get("products");
+        let kind = params.get("products"); 
         for (let product of this.goods) {
             let prod = new lists[this.constructor.name](product);
             if (prod.category === sex) {
@@ -578,9 +550,26 @@ class CategoryList extends ProductList {
     }
 }
 
+// Класс для отрисовки товаров на страницах по категориям лукбуков
 class LookBookCategory extends LookBookList {
-    constructor(lookbookBasket, container, url) {
-        super(lookbookBasket, container, url);
+    constructor(cart, lookbookBasket, container, url) {
+        super(cart, lookbookBasket, container, url);
+    }
+
+    _init() {
+        document.querySelector('.b-siteSearch').addEventListener('submit', e => {
+            e.preventDefault();
+            this.filter(document.querySelector('.b-siteSearch__field').value, 'b-ourLookbookBlock');
+        })
+
+        document.querySelectorAll(`.${this.container}`).forEach(el => {
+            el.addEventListener('click', e => {
+                if (e.target.classList.contains('addToLookbook')) {
+                    e.preventDefault();
+                    this.lookbookBasket.addProduct(e.target);
+                }
+            })
+        })
     }
 
     render() {
@@ -601,6 +590,7 @@ class LookBookCategory extends LookBookList {
     }
 }
 
+// Главный класс для отрисовки отдельного товара из списка (класс List)
 class Item {
     constructor(el) {
         this.id = el.id_product;
@@ -653,8 +643,10 @@ class Item {
     }
 }
 
+// Класс для отрисовки товара из списка ProductList
 class ProductItem extends Item {}
 
+// Класс для отрисовки товара из списка Cart
 class CartItem extends Item {
     constructor(el) {
         super(el);
@@ -679,6 +671,7 @@ class CartItem extends Item {
     }
 }
 
+// Класс для отрисовки товара из списка LookbookBasket
 class LookbookBasketItem extends Item {
     constructor(el) {
         super(el);
@@ -700,6 +693,7 @@ class LookbookBasketItem extends Item {
     }
 }
 
+// Класс для отрисовки товара из списка LookBook
 class LookBookItem extends Item {
     constructor(el) {
         super(el);
@@ -722,6 +716,7 @@ class LookBookItem extends Item {
     }
 }
 
+// Класс для отрисовки товара из списка ProductView
 class ProductViewItem extends Item {
     constructor(el) {
         super(el);
@@ -731,6 +726,8 @@ class ProductViewItem extends Item {
         this.colours = el.colours;
         this.sizes = el.sizes;
         this.long_desc = el.long_description;
+        this.quantity = el.quantity;
+        this.video = el.video;
     }
 
     render() {
@@ -814,8 +811,8 @@ class ProductViewItem extends Item {
                         <div class="b-productViewDescToBuySelection__select">
                             <h4 class="b-productViewDescToBuySelection__head">Qty</h4>
                             <input type="text" class="b-productViewDescToBuySelection__counter" value="1">
-                            <i class="b-productViewDescToBuySelection__counter_arrowUp fas fa-chevron-up" data-id="${this.id}"></i>
-                            <i class="b-productViewDescToBuySelection__counter_arrowDown fas fa-chevron-down" data-id="${this.id}"></i>
+                            <i class="b-productViewDescToBuySelection__counter_arrowUp fas fa-chevron-up"></i>
+                            <i class="b-productViewDescToBuySelection__counter_arrowDown fas fa-chevron-down"></i>
                         </div>
                         <div class="b-productViewDescToBuySelection_buttonsMargins">
                             <button class="b-productViewDescToBuySelection__addToCartBtn buyBtn" 
@@ -854,7 +851,7 @@ class ProductViewItem extends Item {
                     </p>
                 </div>
                 <div class="b-productViewLongDescContent">
-                    <video class="b-productViewLongDescContent__video" src="images/videos/coverr-business-man-walking--1565501702868.mp4" controls width="100%" height="100%"></video>
+                    <video class="b-productViewLongDescContent__video" src=${this.video} controls width="100%" height="100%"></video>
                 </div>
                 <div class="b-productViewLongDescContent">
                     <h4 class="b-productViewLongDescContent__head">Lorem ipsum dolor sit amet.</h4>
@@ -892,10 +889,13 @@ class ProductViewItem extends Item {
     }
 }
 
-class CategoryItem extends Item {}
+// Класс для отрисовки товара из списка Category
+class CategoryItem extends ProductItem {}
 
+// Класс для отрисовки товара из списка LookBookCategory
 class LookBookCategoryItem extends LookBookItem {}
 
+// Словарь для связи "список" - "товар из списка"
 let lists = {
     ProductList: ProductItem,
     Cart: CartItem,
@@ -906,6 +906,7 @@ let lists = {
     LookbookBasket: LookbookBasketItem
 }
 
+// Словарь для связи "наименование пункта меню на странице" - "наименование маркера в БД"
 let marks = {
     'popular': 'popular',
     'new arrivals': 'newArrivals',
@@ -957,7 +958,7 @@ class Validator {
         };
         this.errorClass = 'errorMsg';
         this.form = form;
-        this.valid = false;
+        this.valid = false; // форма по умолчанию не валидна
         this._validateForm();
     }
 
@@ -1007,7 +1008,7 @@ class Validator {
         field.parentNode.insertAdjacentHTML('beforeend', error);
     }
 
-    _watchField(field) {
+    _watchField(field) { //проверка на исправление ошибок пользователем
         field.addEventListener('input', () => {
             let error = field.parentNode.querySelector(`.${this.errorClass}`);
             if (this.patterns[field.name].test(field.value)) {
@@ -1026,7 +1027,7 @@ class Validator {
         })
     }
 
-    _watchConfirmPassword(field) {
+    _watchConfirmPassword(field) { // проверка на исправление ошибок пользователем при повторе пароля
         field.addEventListener('input', () => {
             let error = field.parentNode.querySelector(`.${this.errorClass}`);
             let password = document.querySelector('.b-registerBlock input[name="password"]');
@@ -1071,7 +1072,7 @@ if (document.location.search != '') { // header всех страниц, кро�
 }
 
 if (document.location.search === '?page=lookbook') { // страница Lookbook
-    let lookbook = new LookBookList(lookbookBasket);
+    let lookbook = new LookBookList(cart, lookbookBasket);
     let productsSwitch = new Switch('b-menuSection__link', 'b-ourLookbook', 'grid');
 }
 
@@ -1110,5 +1111,5 @@ if(document.location.search === `?page=category&sex=${sex}&type=${type}&products
 }
 
 if(document.location.search === `?page=lookbookposts&sex=${sex}`) { // страница лукбуков по категориям
-    let lookbookcategory = new LookBookCategory(lookbookBasket);
+    let lookbookcategory = new LookBookCategory(cart, lookbookBasket);
 }

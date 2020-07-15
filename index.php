@@ -25,12 +25,18 @@
                 <div class="headerLogoNavAndSearch">
                     <div class="b-logo"><a class="b-logo__link" href="/"><span class="b-logo__link b-logo__link_bold">avenue</span>fashion</a></div>
                     <nav class="b-mainNav b-mainNav_topAndLeft">
+                    <input type="checkbox" name="toggle" id="menu" class="b-mainNav__inputToggleMenu">
+                    <label for="menu" class="b-mainNav__toggleMenu"><i class="fa fa-bars"></i>Menu</label>
                         <ul class="b-mainNav__items">
                             <li class="b-mainNav__item">
-                                <a href="#" class="b-mainNav__link">mens<i class="b-mainNav__arrowDown fas fa-angle-down"></i></a>
+                                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1">
+                                <a href="#" class="b-mainNav__link">mens</a>
+                                <label for="sub_m1" class="toggleSubmenu"><i class="b-mainNav__arrowDown fas fa-angle-down"></i></label>
                                 <ul class="b-navDropDown">
                                     <li class="b-navDropDown__casual">
-                                        <h3 class="b-navDropDown__casualHead b-navDropDown__casualHead_bottom">casuals<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1-1">
+                                        <a href="#" class="b-navDropDown__casualHead b-navDropDown__casualHead_bottom">casuals</a>
+                                        <label for="sub_m1-1" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__casualItems">
                                             <li class="b-navDropDown__casualItem">
                                                 <a href="index.php?page=category&sex=mens&type=casuals&products=jackets" class="b-navDropDown__link">Jackets</a>
@@ -53,7 +59,9 @@
                                         </ul>
                                     </li>
                                     <li class="b-navDropDown__formal">
-                                        <h3 class="b-navDropDown__formalHead b-navDropDown__formalHead_bottom">Formal<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1-2">
+                                        <a href="#" class="b-navDropDown__formalHead b-navDropDown__formalHead_bottom">Formal</a>
+                                        <label for="sub_m1-2" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__formalItems">
                                             <li class="b-navDropDown__formalItem">
                                                 <a href="index.php?page=category&sex=mens&type=formal&products=jackets" class="b-navDropDown__link">Jackets</a>
@@ -76,10 +84,14 @@
                                 </ul>
                             </li>
                             <li class="b-mainNav__item">
-                                <a href="#" class="b-mainNav__link">womens<i class="b-mainNav__arrowDown fas fa-angle-down"></i></a>
+                                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m2">
+                                <a href="#" class="b-mainNav__link">womens</a>
+                                <label for="sub_m2" class="toggleSubmenu"><i class="b-mainNav__arrowDown fas fa-angle-down"></i></label>
                                 <ul class="b-navDropDown">
                                     <li class="b-navDropDown__casual">
-                                        <h3 class="b-navDropDown__casualHead b-navDropDown__casualHead_bottom">casuals<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m2-1">
+                                        <a href="#" class="b-navDropDown__casualHead b-navDropDown__casualHead_bottom">casuals</a>
+                                        <label for="sub_m2-1" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__casualItems">
                                             <li class="b-navDropDown__casualItem">
                                                 <a href="index.php?page=category&sex=womens&type=casuals&products=jackets"class="b-navDropDown__link">Jackets</a>
@@ -102,7 +114,9 @@
                                         </ul>
                                     </li>
                                     <li class="b-navDropDown__formal">
-                                        <h3 class="b-navDropDown__formalHead b-navDropDown__formalHead_bottom">Formal<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m2-2">
+                                        <a href="#" class="b-navDropDown__formalHead b-navDropDown__formalHead_bottom">Formal</a>
+                                        <label for="sub_m2-2" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__formalItems">
                                             <li class="b-navDropDown__formalItem">
                                                 <a href="index.php?page=category&sex=womens&type=formal&products=jackets" class="b-navDropDown__link">Jackets</a>
@@ -131,10 +145,14 @@
                                 <a href="index.php?page=local-stores" class="b-mainNav__link">local stores</a>
                             </li>
                             <li class="b-mainNav__item">
-                                <a href="#" class="b-mainNav__link">look book<i class="b-mainNav__arrowDown fas fa-angle-down"></i></a> 
+                                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m3">
+                                <a href="#" class="b-mainNav__link">look book</a>
+                                <label for="sub_m3" class="toggleSubmenu"><i class="b-mainNav__arrowDown fas fa-angle-down"></i></label>
                                 <ul class="b-navDropDown b-navDropDown_right">
                                     <li class="b-navDropDown__ourLookbook">
-                                        <h3 class="b-navDropDown__ourLookbookHead b-navDropDown__ourLookbookHead_bottom">Our Lookbooks<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m3-1">
+                                        <a href="#" class="b-navDropDown__ourLookbookHead b-navDropDown__ourLookbookHead_bottom">Our Lookbooks</a>
+                                        <label for="sub_m3-1" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__ourLookbookItems">
                                             <li class="b-navDropDown__ourLookbookItem">
                                                 <a href="index.php?page=lookbook" class="b-navDropDown__link">Latest Posts (mixed)</a>
@@ -148,7 +166,9 @@
                                         </ul>
                                     </li>
                                     <li class="b-navDropDown__yourLookbook">
-                                        <h3 class="b-navDropDown__yourLookbookHead b-navDropDown__yourLookbookHead_bottom">Your Lookbook<i class="b-navDropDown__arrowDown fas fa-angle-down"></i></h3>
+                                        <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m3-2">
+                                        <a href="#" class="b-navDropDown__yourLookbookHead b-navDropDown__yourLookbookHead_bottom">Your Lookbooks</a>
+                                        <label for="sub_m3-2" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__yourLookbookItems">
                                             <li class="b-navDropDown__yourLookbookItem">
                                                 <a href="#" class="b-navDropDown__link">View and Edit</a>
