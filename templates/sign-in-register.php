@@ -1,5 +1,4 @@
 <div class="b-mainPicture">
-    <!-- <div class="b-theBrandMainPicture__AVE">A V E</div> -->
     <h1 class="b-mainPicture__head b-mainPicture__head_bottom">
         <span class="b-mainPicture__head b-mainPicture__head_bold">welcome</span> to ave</h1>
     <h3 class="b-mainPicture__slogan">sign in or register</h3>
@@ -33,7 +32,7 @@
                 <input type="password" name="confirmPassword" class="b-registerBlock__input" placeholder="Confirm password.." required>
             </div>
             <div class="b-registerBlock__checkbox">
-                <input type="checkbox" name="signIn" required>
+                <input type="checkbox" name="signIn" id="signIn" required>
                 <label for="signIn">Sign up for exclusive updates, discounts, new arrivals, contests, and more!</label>
             </div>
             <button class="b-registerBlock__submit">Create Account</button>

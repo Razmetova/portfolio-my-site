@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="packages/fontawesome-free-5.13.0-web (1)/fontawesome-free-5.13.0-web/css/all.css">
+    <link rel="stylesheet" href="packages/fontawesome-free-5.13.0-web(1)/fontawesome-free-5.13.0-web/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>Document</title>
@@ -77,10 +77,12 @@
                                             </li>                                
                                         </ul>
                                     </li>
-                                    <a href="#" class="b-navDropDown__specialOffer">
-                                        <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
-                                        up to 50% off</p>
-                                    </a>
+                                    <li class="b-navDropDown__specialOffer">
+                                        <a href="#" class="b-navDropDown__specialOfferLink">
+                                            <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
+                                            up to 50% off</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="b-mainNav__item">
@@ -94,7 +96,7 @@
                                         <label for="sub_m2-1" class="toggleSubmenu"><i class="b-navDropDown__arrowDown fas fa-angle-down"></i></label>
                                         <ul class="b-navDropDown__casualItems">
                                             <li class="b-navDropDown__casualItem">
-                                                <a href="index.php?page=category&sex=womens&type=casuals&products=jackets"class="b-navDropDown__link">Jackets</a>
+                                                <a href="index.php?page=category&sex=womens&type=casuals&products=jackets" class="b-navDropDown__link">Jackets</a>
                                             </li>
                                             <li class="b-navDropDown__casualItem">
                                                 <a href="index.php?page=category&sex=womens&type=casuals&products=hoodiesandsweatshirts" class="b-navDropDown__link">Hoodies & Sweatshirts</a>
@@ -132,10 +134,12 @@
                                             </li>                                
                                         </ul>
                                     </li>
-                                    <a href="#" class="b-navDropDown__specialOffer">
-                                        <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
-                                        up to 50% off</p>
-                                    </a>
+                                    <li class="b-navDropDown__specialOffer">
+                                        <a href="#" class="b-navDropDown__specialOfferLink">
+                                            <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
+                                            up to 50% off</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="b-mainNav__item">
@@ -181,10 +185,12 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <a href="#" class="b-navDropDown__specialOffer">
-                                        <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
-                                        up to 50% off</p>
-                                    </a>
+                                    <li class="b-navDropDown__specialOffer">
+                                        <a href="#" class="b-navDropDown__specialOfferLink">
+                                            <p><span class="b-navDropDown__specialOffer_bold">Autumn sale!</span>
+                                            up to 50% off</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -318,6 +324,6 @@
 
     </div>
 
-    <script type="text/javascript" src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

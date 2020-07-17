@@ -1,5 +1,4 @@
 <div class="b-mainPicture">
-    <!-- <div class="b-theBrandMainPicture__AVE">A V E</div> -->
     <h1 class="b-mainPicture__head b-mainPicture__head_bottom">
         <span class="b-mainPicture__head b-mainPicture__head_bold">local</span> stores</h1>
     <h3 class="b-mainPicture__slogan">Find a store near you</h3>
@@ -42,7 +41,7 @@
     </div>
     <div class="b-localStoreDetails b-localStoreDetails_bottom">
         <div class="b-localStoreDetails__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.5203420345902!2d-0.14091084175173654!3d51.512469594908985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d5767c9015%3A0x1cf0ab0381c7fd45!2zMTgwIFJlZ2VudCBTdCwgU29obywgTG9uZG9uIFcxQiA1VEosINCS0LXQu9C40LrQvtCx0YDQuNGC0LDQvdC40Y8!5e0!3m2!1sru!2sru!4v1589827504459!5m2!1sru!2sru" width="1387" height="530" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.5203420345902!2d-0.14091084175173654!3d51.512469594908985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d5767c9015%3A0x1cf0ab0381c7fd45!2zMTgwIFJlZ2VudCBTdCwgU29obywgTG9uZG9uIFcxQiA1VEosINCS0LXQu9C40LrQvtCx0YDQuNGC0LDQvdC40Y8!5e0!3m2!1sru!2sru!4v1589827504459!5m2!1sru!2sru" width="1387" height="530" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
         <div class="b-localStoreDetails__info">
             <h4 class="b-localStoreDetails__head">London</h4>
@@ -71,7 +70,7 @@
     </div>
     <div class="b-localStoreDetails b-localStoreDetails_bottom">
         <div class="b-localStoreDetails__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.714833325958!2d-73.98444318470553!3d40.76829637932581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f63cf10429%3A0x21ea18a2c52e7ca7!2zMTA5IENvbHVtYnVzIENpciwgTmV3IFlvcmssIE5ZIDEwMDE5LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1589830425482!5m2!1sru!2sru" width="1387" height="530" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.714833325958!2d-73.98444318470553!3d40.76829637932581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f63cf10429%3A0x21ea18a2c52e7ca7!2zMTA5IENvbHVtYnVzIENpciwgTmV3IFlvcmssIE5ZIDEwMDE5LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1589830425482!5m2!1sru!2sru" width="1387" height="530" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
         <div class="b-localStoreDetails__info">
             <h4 class="b-localStoreDetails__head">New York</h4>
@@ -100,7 +99,7 @@
     </div>
     <div class="b-localStoreDetails b-localStoreDetails_bottom">
         <div class="b-localStoreDetails__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.696084371104!2d2.3316885155771403!3d48.86400547928798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e257ab8a9d9%3A0x60ac8c5b948a55ef!2zUnVlIFNhaW50LUhvbm9yw6ksIDc1MDAxIFBhcmlzLCDQpNGA0LDQvdGG0LjRjw!5e0!3m2!1sru!2sru!4v1589830361703!5m2!1sru!2sru" width="1387" height="530" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.696084371104!2d2.3316885155771403!3d48.86400547928798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e257ab8a9d9%3A0x60ac8c5b948a55ef!2zUnVlIFNhaW50LUhvbm9yw6ksIDc1MDAxIFBhcmlzLCDQpNGA0LDQvdGG0LjRjw!5e0!3m2!1sru!2sru!4v1589830361703!5m2!1sru!2sru" width="1387" height="530" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
         <div class="b-localStoreDetails__info">
             <h4 class="b-localStoreDetails__head">Paris</h4>
