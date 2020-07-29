@@ -7,7 +7,7 @@
 
 <main>
     <div class="b-addresses">
-        <div class="b-address">
+        <article class="b-address">
             <h4 class="b-address__head">London</h4>
             <p class="b-address__address b-address__address_topAndBottom">180-182 Regent Street, London, W1B 5BT</p>
             <p class="b-address__text b-address__text_bottom">
@@ -16,8 +16,8 @@
                 posuere nunc iaculis ligula viverra iaculis. Aliquam erat volutpat.
             </p>
             <button class="b-address__btn">view details</button>
-        </div>
-        <div class="b-address">
+        </article>
+        <article class="b-address">
             <h4 class="b-address__head">New York</h4>
             <p class="b-address__address b-address__address_topAndBottom">109 Columbus Circle, New York, NY 10023</p>
             <p class="b-address__text b-address__text_bottom">
@@ -26,8 +26,8 @@
                 massa mi eu nibh. Nullam vitae aliquam dui, non sodales nisl.
             </p>
             <button class="b-address__btn">view details</button>
-        </div>
-        <div class="b-address">
+        </article>
+        <article class="b-address">
             <h4 class="b-address__head">Paris</h4>
             <p class="b-address__address b-address__address_topAndBottom">2133 Rue Saint-Honoré, 75001 Paris</p>
             <p class="b-address__text b-address__text_bottom">
@@ -37,7 +37,7 @@
                 curae cras ligula.
             </p>
             <button class="b-address__btn">view details</button>
-        </div>
+        </article>
     </div>
     <div class="b-localStoreDetails b-localStoreDetails_bottom">
         <div class="b-localStoreDetails__map">

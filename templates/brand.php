@@ -8,7 +8,7 @@
     <div class="b-handDesignedImage">
         <img class="b-handDesignedImage__img" src="images/REPLACE-the-brand-1.png" alt="the-brand-photo-1">
     </div>
-    <div class="b-handDesignetDesc">
+    <article class="b-handDesignetDesc">
         <h4 class="b-handDesignetDesc__head">hand designed clothing</h4>
         <p class="b-handDesignetDesc__info b-handDesignetDesc__info_margins">
             established in 2013, avenue fashion Sed dictum elit vel sapien luctus eras
@@ -20,11 +20,11 @@
             risus vitae, rutrum sodales nibh suspendisse congue metus nunc, id viverra elit loreti 
             rhoncus quis consecteur es. Donec pulvinar tempor lorem a pretium justo interdum.
         </p>
-    </div>
+    </article>
     <div class="b-ethicalTradingImage">
         <img src="images/REPLACE-the-brand-2.png" alt="the-brand-photo-2" class="b-ethicalTradingImage__img">
     </div>
-    <div class="b-ethicalTradingDesc">
+    <article class="b-ethicalTradingDesc">
         <h4 class="b-ethicalTradingDesc__head">Ethical trading</h4>
         <p class="b-ethicalTradingDesc__info b-ethicalTradingDesc__info_margins">
             we oversee the working conditions of the people in the supply chain
@@ -36,11 +36,11 @@
             Cras viverra ullamcorper nunc accumsan hendrerit. 
             <a href="#">A link <i class="fas fa-arrow-right"></i></a>
         </p>
-    </div>
+    </article>
     <div class="b-ourValuesImage">
         <img src="images/REPLACE-the-brand-3.png" alt="the-brand-photo-3" class="b-ourValuesImage__img">
     </div>
-    <div class="b-ourValuesDesc">
+    <article class="b-ourValuesDesc">
         <h4 class="b-ourValuesDesc__head">our values, vision and strategy</h4>
         <p class="b-ourValuesDesc__info b-ourValuesDesc__info_margins">
             The above image would be a great place for an advertising video
@@ -52,7 +52,7 @@
             Pellentesque sapien mi, <a href="#">tincidunt nec magna vitae</a>, volutpat elementum odioni lorem 
             Aliquam tempor massa vitae augue mattis tempor id in ante ut augue erat, luctus eil.
         </p>
-    </div>
+    </article>
     <div class="b-signatures b-signatures_top">
         <img src="images/signature-1.png" alt="signature-1" class="b-signatures__sign_right">
         <img src="images/signature-2.png" alt="signature-2" class="b-signatures__sign_right">
